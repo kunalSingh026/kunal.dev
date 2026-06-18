@@ -1,0 +1,31 @@
+# Dependency directories
+node_modules/
+**/node_modules/
+
+# Next.js build output
+frontend/.next/
+frontend/out/
+frontend/build/
+
+# SQLite databases
+*.sqlite
+*.sqlite3
+backend/src/data/*.sqlite
+backend/src/data/*.sqlite3
+
+# Env files
+.env
+.env.*
+**/ .env
+**/ .env.*
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+lerna-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
