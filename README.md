@@ -114,11 +114,6 @@ The frontend application will run at: **`http://localhost:3000`**
 
 The backend exposes the following API routes under the `/api` prefix:
 
-### Authentication (`/api/auth`)
-* `POST /api/auth/login` - Authenticate admin and set HTTP-only cookie.
-* `POST /api/auth/logout` - Clear cookie and logout admin.
-* `GET /api/auth/me` - Validate session and return user info.
-
 ### Projects (`/api/projects`)
 * `GET /api/projects` - Get all projects.
 * `POST /api/projects` - Create a new project (Admin only).
