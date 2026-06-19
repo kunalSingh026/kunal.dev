@@ -30,6 +30,7 @@ export default function Navbar() {
           <Link href="#projects" className="nav-item hover:text-[#7a545d] transition-colors">Projects</Link>
           <Link href="#about" className="nav-item hover:text-[#7a545d] transition-colors">About Me</Link>
           <Link href="#education" className="nav-item hover:text-[#7a545d] transition-colors">Education</Link>
+          <Link href="#achievements" className="nav-item hover:text-[#7a545d] transition-colors">Achievements</Link>
           <Link href="#experience" className="nav-item hover:text-[#7a545d] transition-colors">Experience</Link>
           <Link href="#contact" className="nav-item hover:text-[#7a545d] transition-colors">Contact Me</Link>
         </div>
@@ -47,6 +48,7 @@ export default function Navbar() {
           <Link href="#projects" onClick={() => setIsOpen(false)} className="text-[#1d1b18] font-medium text-base hover:text-[#7a545d] transition-colors">Projects</Link>
           <Link href="#about" onClick={() => setIsOpen(false)} className="text-[#1d1b18] font-medium text-base hover:text-[#7a545d] transition-colors">About Me</Link>
           <Link href="#education" onClick={() => setIsOpen(false)} className="text-[#1d1b18] font-medium text-base hover:text-[#7a545d] transition-colors">Education</Link>
+          <Link href="#achievements" onClick={() => setIsOpen(false)} className="text-[#1d1b18] font-medium text-base hover:text-[#7a545d] transition-colors">Achievements</Link>
           <Link href="#experience" onClick={() => setIsOpen(false)} className="text-[#1d1b18] font-medium text-base hover:text-[#7a545d] transition-colors">Experience</Link>
           <Link href="#contact" onClick={() => setIsOpen(false)} className="text-[#1d1b18] font-medium text-base hover:text-[#7a545d] transition-colors">Contact Me</Link>
         </div>

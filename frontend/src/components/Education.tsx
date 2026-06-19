@@ -31,13 +31,6 @@ const EDUCATION_DATA: EducationItem[] = [
     institution: 'Netaji Subhas University | 2024 — 2027 (Expected)',
     gpa: 'Cumulative GPA: 8.8 / 10 (Current)',
     details: 'Focus Areas: Advanced Algorithms, Cloud Architecture, DevOps & CI/CD Pipelines, and Systems Engineering. Key Highlights: Specializing in containerized environments (Docker), orchestration, and deploying scalable microservices. Actively building robust full-stack applications with Django and Next.js.'
-  },
-  {
-    id: 3,
-    title: 'Key Milestones & Professional Achievements',
-    institution: 'Full-Stack & DevOps Architect | 2021 — Present',
-    gpa: '5+ Production Deployments & Open Source Contributions',
-    details: 'Highlights: Won First Place in regional university hackathons. Developed and successfully deployed several scalable applications to cloud environments (VPS, AWS). Maintainer of multiple open-source utilities for development workflow automation.'
   }
 ];
 
@@ -77,7 +70,7 @@ export default function Education() {
       scrollTrigger: {
         trigger: section,
         start: 'top top',
-        end: '+=250%',
+        end: '+=150%',
         pin: true,
         scrub: 1,
         anticipatePin: 1,
@@ -100,25 +93,12 @@ export default function Education() {
     })
     
     // 2. Transition Slide 1 -> Slide 2
-    .to(digitContainer, { yPercent: -33.33, duration: 1, ease: 'power2.inOut' }, '+=0.2')
+    .to(digitContainer, { yPercent: -50, duration: 1, ease: 'power2.inOut' }, '+=0.2')
     .to(slidesRef.current[0], { opacity: 0, y: -50, duration: 1, ease: 'power2.in' }, '<')
     .to(slidesRef.current[1], { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, '<')
     
     // 3. Slide 2 Reveal
     .to('.word-slide-1', {
-      color: '#FAF6EE',
-      stagger: 0.03,
-      duration: 1.5,
-      ease: 'none'
-    })
-    
-    // 4. Transition Slide 2 -> Slide 3
-    .to(digitContainer, { yPercent: -66.66, duration: 1, ease: 'power2.inOut' }, '+=0.2')
-    .to(slidesRef.current[1], { opacity: 0, y: -50, duration: 1, ease: 'power2.in' }, '<')
-    .to(slidesRef.current[2], { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, '<')
-    
-    // 5. Slide 3 Reveal
-    .to('.word-slide-2', {
       color: '#FAF6EE',
       stagger: 0.03,
       duration: 1.5,
@@ -290,7 +270,6 @@ export default function Education() {
             >
               <span className="h-[1.1em] flex items-center justify-center">1</span>
               <span className="h-[1.1em] flex items-center justify-center">2</span>
-              <span className="h-[1.1em] flex items-center justify-center">3</span>
             </div>
           </div>
         </div>
