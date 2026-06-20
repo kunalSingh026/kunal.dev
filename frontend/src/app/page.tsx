@@ -10,6 +10,7 @@ import Education from '../components/Education';
 import Achievements from '../components/Achievements';
 import Experience from '../components/Experience';
 import Contact from '../components/Contact';
+import Footer from '../components/Footer';
 import gsap from 'gsap';
 
 export default function Home() {
@@ -56,14 +57,7 @@ export default function Home() {
           <Contact />
         </main>
 
-        <footer className="w-full border-t border-[#d3c2c5] bg-[#fef9f3] py-8 text-center text-sm text-[#1d1b18] font-sans relative z-10">
-          <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p>© {new Date().getFullYear()} KUNAL • DEV. All rights reserved.</p>
-            <p className="flex items-center gap-1.5 text-xs text-[#1d1b18]/60">
-              Built with Next.js & GSAP
-            </p>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </>
   );
