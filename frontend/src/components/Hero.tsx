@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Terminal } from 'lucide-react';
 
 export default function Hero() {
@@ -9,6 +10,7 @@ export default function Hero() {
   const cardRef = useRef<HTMLDivElement>(null);
   const [gridSize, setGridSize] = useState({ cols: 0, rows: 0 });
   const [mounted, setMounted] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(false);
 
   // Typing Effect State
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -121,7 +123,7 @@ export default function Hero() {
       <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#000_1.5px,transparent_1.5px)] [background-size:24px_24px] pointer-events-none" />
 
       {/* Content Container Layer - Omitted z-index to allow correct blend mode difference drawing */}
-      <div className="relative w-full max-w-7xl mx-auto px-8 md:px-16 lg:px-24 py-28 pointer-events-none flex flex-col lg:flex-row items-center justify-between gap-16">
+      <div className="relative w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-20 md:py-28 pointer-events-none flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 lg:gap-16">
         
         {/* Left Column: Text & CTAs */}
         <div className="flex-1 text-left max-w-2xl">
@@ -162,81 +164,135 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Glassy Card */}
-        <div className="flex-1 w-full max-w-md pointer-events-auto">
+        {/* Right Column: Glassy Flippable Card */}
+        <div 
+          className="flex-1 w-full max-w-md pointer-events-auto [perspective:1000px] cursor-pointer select-none animate-float"
+          onClick={() => setIsFlipped(!isFlipped)}
+        >
           <div 
-            ref={cardRef}
-            onMouseMove={handleCardMouseMove}
-            className="glassy-spotlight-card animate-float rounded-2xl p-10 md:p-12 w-full relative flex flex-col justify-between"
+            className={`relative w-full transition-transform duration-700 [transform-style:preserve-3d] ${
+              isFlipped ? '[transform:rotateY(180deg)]' : ''
+            }`}
           >
-            {/* Terminal Window Header */}
-            <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6 select-none">
-              <div className="flex gap-2">
-                <span className="w-3 h-3 rounded-full bg-[#ff5f56]" />
-                <span className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
-                <span className="w-3 h-3 rounded-full bg-[#27c93f]" />
+            {/* Front Card (Code/Terminal) - Relative positioning to drive container sizing naturally */}
+            <div 
+              ref={cardRef}
+              onMouseMove={handleCardMouseMove}
+              className="glassy-spotlight-card rounded-2xl p-8 md:p-10 w-full relative [backface-visibility:hidden] flex flex-col justify-between z-10 min-h-[460px] md:min-h-[480px]"
+            >
+              {/* Terminal Window Header */}
+              <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6 select-none">
+                <div className="flex gap-2">
+                  <span className="w-3 h-3 rounded-full bg-[#ff5f56]" />
+                  <span className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
+                  <span className="w-3 h-3 rounded-full bg-[#27c93f]" />
+                </div>
+                <div className="flex items-center gap-1.5 text-xs text-white/40 font-mono">
+                  <Terminal size={12} /> kunal.sh
+                </div>
               </div>
-              <div className="flex items-center gap-1.5 text-xs text-white/40 font-mono">
-                <Terminal size={12} /> kunal.sh
+
+              {/* Code / Stats details */}
+              <div className="font-mono text-xs md:text-sm text-white/85 space-y-4 leading-relaxed">
+                <div>
+                  <span className="text-[#f9c7d2] font-semibold">kunal</span>
+                  <span className="text-white/60"> = </span>
+                  <span className="text-white font-medium">{'{'}</span>
+                </div>
+                
+                <div className="pl-4">
+                  <span className="text-[#f4ccab]">focus:</span>
+                  <span className="text-white/60"> "</span>
+                  <span className="text-[#caebcc]">Full-Stack & DevOps</span>
+                  <span className="text-white/60">",</span>
+                </div>
+
+                <div className="pl-4">
+                  <span className="text-[#f4ccab]">backends:</span>
+                  <span className="text-white/60"> [</span>
+                  <span className="text-[#caebcc]">"Django"</span>
+                  <span className="text-white/60">, </span>
+                  <span className="text-[#caebcc]">"Express"</span>
+                  <span className="text-white/60">, </span>
+                  <span className="text-[#caebcc]">"Node"</span>
+                  <span className="text-white/60">],</span>
+                </div>
+
+                <div className="pl-4">
+                  <span className="text-[#f4ccab]">frontends:</span>
+                  <span className="text-white/60"> [</span>
+                  <span className="text-[#caebcc]">"React"</span>
+                  <span className="text-white/60">, </span>
+                  <span className="text-[#caebcc]">"Next.js"</span>
+                  <span className="text-white/60">, </span>
+                  <span className="text-[#caebcc]">"Tailwind"</span>
+                  <span className="text-white/60">],</span>
+                </div>
+
+                <div className="pl-4">
+                  <span className="text-[#f4ccab]">deployment:</span>
+                  <span className="text-white/60"> [</span>
+                  <span className="text-[#caebcc]">"Docker"</span>
+                  <span className="text-white/60">, </span>
+                  <span className="text-[#caebcc]">"AWS"</span>
+                  <span className="text-white/60">, </span>
+                  <span className="text-[#caebcc]">"CI/CD"</span>
+                  <span className="text-white/60">,</span>
+                  <span className="text-[#caebcc]">"Vercel"</span>
+                  <span className="text-white/60">]</span>
+                </div>
+
+                <div>
+                  <span className="text-white font-medium">{'}'}</span>
+                </div>
+
+                <div className="pt-4 border-t border-white/5 text-[10px] text-white/30 select-none font-mono">
+                  // Click card to flip & reveal developer.
+                </div>
               </div>
             </div>
 
-            {/* Code / Stats details */}
-            <div className="font-mono text-xs md:text-sm text-white/85 space-y-4 leading-relaxed">
-              <div>
-                <span className="text-[#f9c7d2] font-semibold">kunal</span>
-                <span className="text-white/60"> = </span>
-                <span className="text-white font-medium">{'{'}</span>
-              </div>
-              
-              <div className="pl-4">
-                <span className="text-[#f4ccab]">focus:</span>
-                <span className="text-white/60"> "</span>
-                <span className="text-[#caebcc]">Full-Stack & DevOps</span>
-                <span className="text-white/60">",</span>
-              </div>
-
-              <div className="pl-4">
-                <span className="text-[#f4ccab]">backends:</span>
-                <span className="text-white/60"> [</span>
-                <span className="text-[#caebcc]">"Django"</span>
-                <span className="text-white/60">, </span>
-                <span className="text-[#caebcc]">"Express"</span>
-                <span className="text-white/60">, </span>
-                <span className="text-[#caebcc]">"Node"</span>
-                <span className="text-white/60">],</span>
+            {/* Back Card (User Photo) - Absolute positioned to fill the container size of Front Card */}
+            <div 
+              onMouseMove={handleCardMouseMove}
+              className="glassy-spotlight-card rounded-2xl p-8 md:p-10 w-full h-full absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col justify-between overflow-hidden"
+            >
+              {/* Photo Background */}
+              <div className="absolute inset-0 z-0">
+                <Image 
+                  src="/kunal.jpg" 
+                  alt="Kunal Singh" 
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  className="object-cover object-top opacity-85 hover:scale-105 transition-transform duration-700" 
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1d1b18] via-transparent to-[#1d1b18]/40" />
               </div>
 
-              <div className="pl-4">
-                <span className="text-[#f4ccab]">frontends:</span>
-                <span className="text-white/60"> [</span>
-                <span className="text-[#caebcc]">"React"</span>
-                <span className="text-white/60">, </span>
-                <span className="text-[#caebcc]">"Next.js"</span>
-                <span className="text-white/60">, </span>
-                <span className="text-[#caebcc]">"Tailwind"</span>
-                <span className="text-white/60">],</span>
+              {/* Terminal Window Header (Overlaid) */}
+              <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6 select-none z-10 relative">
+                <div className="flex gap-2">
+                  <span className="w-3 h-3 rounded-full bg-[#ff5f56]" />
+                  <span className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
+                  <span className="w-3 h-3 rounded-full bg-[#27c93f]" />
+                </div>
+                <div className="flex items-center gap-1.5 text-xs text-white/80 font-mono">
+                  <Terminal size={12} /> kunal.png
+                </div>
               </div>
 
-              <div className="pl-4">
-                <span className="text-[#f4ccab]">deployment:</span>
-                <span className="text-white/60"> [</span>
-                <span className="text-[#caebcc]">"Docker"</span>
-                <span className="text-white/60">, </span>
-                <span className="text-[#caebcc]">"AWS"</span>
-                <span className="text-white/60">, </span>
-                <span className="text-[#caebcc]">"CI/CD"</span>
-                <span className="text-white/60">,</span>
-                <span className="text-[#caebcc]">"Vercel"</span>
-                <span className="text-white/60">]</span>
-              </div>
+              {/* Empty middle space to see photo */}
+              <div className="flex-grow z-10" />
 
-              <div>
-                <span className="text-white font-medium">{'}'}</span>
-              </div>
-
-              <div className="pt-4 border-t border-white/5 text-[10px] text-white/30 select-none">
-                // Hover inside to project mouse light spotlight.
+              {/* Footer details (Overlaid) */}
+              <div className="z-10 relative font-mono text-xs text-white/90 space-y-1">
+                <div>
+                  <span className="text-[#f9c7d2]">kunal.sh</span> --status active
+                </div>
+                <div className="text-white/40 text-[10px]">
+                  // Click card to flip back.
+                </div>
               </div>
             </div>
 
