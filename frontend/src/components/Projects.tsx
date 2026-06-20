@@ -19,8 +19,8 @@ const PROJECTS_DATA: Project[] = [
     tag: 'Full-Stack & Security',
     description: 'Full-stack platform for hosting and managing hackathons.',
     imagePath: '/projects/hackflow.png',
-    githubUrl: 'https://github.com/kunal-dev/hackflow',
-    liveUrl: 'https://hackflow.kunal.dev',
+    githubUrl: 'https://github.com/kunalSingh026/HackFlow.git',
+    liveUrl: 'https://hack-flow-rust.vercel.app/',
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const PROJECTS_DATA: Project[] = [
     tag: 'React & Database',
     description: 'A complete movie ticket booking platform featuring interactive seat grid reservations, transaction locking, and session checkouts.',
     imagePath: '/projects/cinebook.png',
-    githubUrl: 'https://github.com/kunal-dev/cinebook',
+    githubUrl: 'https://github.com/kunalSingh026/CineBook.git',
     liveUrl: 'https://cinebook.kunal.dev',
   },
   {
@@ -37,8 +37,8 @@ const PROJECTS_DATA: Project[] = [
     tag: 'Django & Campus',
     description: 'Automated Django platform optimizing campus tracking.',
     imagePath: '/projects/attendance_tracker.png',
-    githubUrl: 'https://github.com/kunal-dev/attendance-tracker',
-    liveUrl: 'https://attendance.kunal.dev',
+    githubUrl: 'https://github.com/kunalSingh026/Attendance-Tarcker.git',
+    liveUrl: 'https://attendance-tarcker.onrender.com',
   },
   {
     id: 4,
@@ -46,7 +46,7 @@ const PROJECTS_DATA: Project[] = [
     tag: 'Identity & Security',
     description: 'A secure authentication microservice featuring JWT tokens, MFA, session management, and OAuth2 integration.',
     imagePath: '/projects/authentication_system.png',
-    githubUrl: 'https://github.com/kunal-dev/auth-system',
+    githubUrl: 'https://github.com/kunalSingh026/Authentication_System.git',
     liveUrl: 'https://auth.kunal.dev',
   },
   {
@@ -55,7 +55,7 @@ const PROJECTS_DATA: Project[] = [
     tag: 'Java & Console',
     description: 'Object-oriented Java console application for vehicle rentals.',
     imagePath: '/projects/fleetease.png',
-    githubUrl: 'https://github.com/kunal-dev/fleetease',
+    githubUrl: 'https://github.com/kunalSingh026/Fleetease.git',
     liveUrl: 'https://fleetease.kunal.dev',
   }
 ];
