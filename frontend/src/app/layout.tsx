@@ -15,7 +15,7 @@ const firaCode = Fira_Code({
 });
 
 export const metadata: Metadata = {
-  title: 'Featured Projects - KUNAL • DEV',
+  title: 'Kunal.Dev',
   description: 'Full-Stack Developer & DevOps Engineer Personal Portfolio Ecosystem.',
 };
 
