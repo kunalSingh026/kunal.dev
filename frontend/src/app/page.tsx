@@ -5,6 +5,7 @@ import Preloader from '../components/Preloader';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Projects from '../components/Projects';
+import DevArsenal from '../components/DevArsenal';
 import Education from '../components/Education';
 import Achievements from '../components/Achievements';
 import Experience from '../components/Experience';
@@ -48,6 +49,7 @@ export default function Home() {
         <main className="w-full flex-grow bg-[#FAF6EE]">
           <Hero />
           <Projects />
+          <DevArsenal />
           <Education />
           <Achievements />
           <Experience />
