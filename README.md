@@ -2,6 +2,8 @@
 
 A modern, highly-interactive, full-stack personal portfolio application built with Next.js, Tailwind CSS v4, GSAP, Express.js, PostgreSQL (production), and SQLite (local dev). This repository contains both the frontend (portfolio presentation and admin control panel) and the backend (API endpoints, database management, SMTP mailing, and JWT authentication).
 
+**Live Demo:** [kunal-dev-topaz.vercel.app](https://kunal-dev-topaz.vercel.app/)
+
 ---
 
 ## ✨ Features & Enhancements
