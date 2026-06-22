@@ -238,7 +238,7 @@ export default function Education() {
     <section 
       ref={sectionRef}
       className="relative min-h-screen w-full bg-[#1d1b18] text-[#FAF6EE] flex items-center overflow-hidden" 
-      id="journey"
+      id="education"
     >
       {/* Background Smoke Canvas */}
       <canvas 
