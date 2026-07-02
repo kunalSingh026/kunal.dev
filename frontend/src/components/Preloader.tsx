@@ -80,10 +80,10 @@ export default function Preloader({ onComplete }: PreloaderProps) {
       <div className="relative flex items-center justify-center w-full max-w-2xl px-6 h-48">
         <h1 
           ref={textRef}
-          className="text-black font-black text-5xl sm:text-6xl md:text-7xl tracking-wider font-sans text-center select-none"
+          className="text-black text-6xl sm:text-7xl md:text-8xl font-signature text-center select-none"
           style={{ opacity: 0 }}
         >
-          KUNAL<span className="text-[#FF5A36] px-1">•</span>DEV
+          Kunal<span className="text-[#FF5A36] px-1">•</span>Dev
         </h1>
 
         <svg

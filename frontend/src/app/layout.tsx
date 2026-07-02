@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Outfit, Fira_Code } from 'next/font/google';
+import { Outfit, Fira_Code, Great_Vibes, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 
 const outfit = Outfit({
@@ -10,6 +10,18 @@ const outfit = Outfit({
 
 const firaCode = Fira_Code({
   variable: '--font-mono',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+});
+
+const greatVibes = Great_Vibes({
+  variable: '--font-signature',
+  subsets: ['latin'],
+  weight: ['400'],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: '--font-space-grotesk',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
 });
@@ -26,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full scroll-smooth">
-      <body className={`${outfit.variable} ${firaCode.variable} bg-[#FAF6EE] text-black min-h-full font-sans antialiased overflow-x-hidden`}>
+      <body className={`${outfit.variable} ${firaCode.variable} ${greatVibes.variable} ${spaceGrotesk.variable} bg-[#FAF6EE] text-black min-h-full font-sans antialiased overflow-x-hidden`}>
         {children}
       </body>
     </html>
